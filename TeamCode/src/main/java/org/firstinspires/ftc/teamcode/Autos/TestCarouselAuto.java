@@ -18,6 +18,7 @@ public class TestCarouselAuto extends LinearOpMode {
 
         SampleMecanumDrive bot = new SampleMecanumDrive(hardwareMap);
 
+
         TrajectoryVelocityConstraint STVC = new TrajectoryVelocityConstraint() {
             @Override
             public double get(double v, @NotNull Pose2d pose2d, @NotNull Pose2d pose2d1, @NotNull Pose2d pose2d2) {
@@ -25,8 +26,12 @@ public class TestCarouselAuto extends LinearOpMode {
             }
         };
 
+
+
         Pose2d startPose = new Pose2d(0, 0, Math.toRadians(90)); // x, y, heading (angle in radians)
         bot.setPoseEstimate(startPose);
+
+        bot.trajectoryBuilder(startPose);
 
         Trajectory forward = bot.trajectoryBuilder(startPose)
                 .forward(15)
@@ -42,6 +47,7 @@ public class TestCarouselAuto extends LinearOpMode {
 
         Trajectory strafeCollect = bot.trajectoryBuilder(strafeSetup.end())
                 .strafeRight(15)
+
                 .build();
 
         Trajectory moveHub = bot.trajectoryBuilder(strafeCollect.end())

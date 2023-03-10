@@ -50,7 +50,6 @@ import static org.firstinspires.ftc.teamcode.drive.DriveConstants.kV;
 
 import ftc.rogue.blacksmith.util.kalman.KalmanThreeWheelLocalizer;
 
-
 @Config
 public class SampleMecanumDrive extends MecanumDrive {
     public static PIDCoefficients TRANSLATIONAL_PID = new PIDCoefficients(11, 0, 0.003); //9.5 kp
